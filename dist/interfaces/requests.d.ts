@@ -1,5 +1,5 @@
 export interface NewCardRequest {
-    spaceID: string;
-    parentCardPathToRoot: string | null;
-    name: string;
+  spaceID: string;
+  parentCardPathToRoot: string | null;
+  name: string;
 }

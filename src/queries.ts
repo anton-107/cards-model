@@ -23,10 +23,10 @@ export class CardsRepository {
       cardID,
       name: request.name,
       content: [],
-      entityType: 'card',
-      createdAt: (new Date()).toISOString(),
-      updatedAt: (new Date()).toISOString(),
-      owner: 'user-1'
+      entityType: "card",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      owner: "user-1",
     };
     this.cards.push(card);
     return card;
