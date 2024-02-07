@@ -1,7 +1,11 @@
 import { Card } from "./interfaces/models";
 import { NewCardRequest } from "./interfaces/requests";
 
-class IDCounter {
+interface Counter {
+  next(): void;
+}
+
+export class IDCounter implements Counter {
   private counter = 0;
   public next() {
     return (this.counter += 1);
@@ -10,7 +14,8 @@ class IDCounter {
 
 export class CardsRepository {
   private cards: Card[] = [];
-  private idCounter = new IDCounter();
+
+  constructor(private idCounter: Counter) {}
 
   public addCard(request: NewCardRequest): Card {
     const cardID = String(this.idCounter.next());

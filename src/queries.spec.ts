@@ -1,7 +1,7 @@
-import { CardsRepository } from "./queries";
+import { CardsRepository, IDCounter } from "./repository";
 
 describe("Adding nesting cards", () => {
-  const repository = new CardsRepository();
+  const repository = new CardsRepository(new IDCounter());
 
   it("should create cards on the root level", () => {
     repository.addCard({
