@@ -1,11 +1,11 @@
 import { Card } from "./interfaces/models";
 import { NewCardRequest } from "./interfaces/requests";
 interface Counter {
-    next(): void;
+    next(): string;
 }
 export declare class IDCounter implements Counter {
     private counter;
-    next(): number;
+    next(): string;
 }
 export declare class CardsRepository {
     private idCounter;

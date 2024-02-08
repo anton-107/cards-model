@@ -2,13 +2,13 @@ import { Card } from "./interfaces/models";
 import { NewCardRequest } from "./interfaces/requests";
 
 interface Counter {
-  next(): void;
+  next(): string;
 }
 
 export class IDCounter implements Counter {
   private counter = 0;
-  public next() {
-    return (this.counter += 1);
+  public next(): string {
+    return String((this.counter += 1));
   }
 }
 
@@ -18,7 +18,7 @@ export class CardsRepository {
   constructor(private idCounter: Counter) {}
 
   public addCard(request: NewCardRequest): Card {
-    const cardID = String(this.idCounter.next());
+    const cardID = this.idCounter.next();
     const card: Card = {
       spaceID: request.spaceID,
       pathToRoot: this.calculateNewPathToRoot(

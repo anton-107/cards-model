@@ -6,7 +6,7 @@ class IDCounter {
         this.counter = 0;
     }
     next() {
-        return (this.counter += 1);
+        return String((this.counter += 1));
     }
 }
 exports.IDCounter = IDCounter;
@@ -16,7 +16,7 @@ class CardsRepository {
         this.cards = [];
     }
     addCard(request) {
-        const cardID = String(this.idCounter.next());
+        const cardID = this.idCounter.next();
         const card = {
             spaceID: request.spaceID,
             pathToRoot: this.calculateNewPathToRoot(request.parentCardPathToRoot, cardID),
